@@ -10,10 +10,19 @@ class Solution {
                     dp[i][j] = matrix[i][j] - '0';
                 }
                 else{
-                    dp[i][j] = Math.min(dp[i][j-1],Math.min(dp[i-1][j-1],dp[i-1][j])) + 1;
+                    int up_left = dp[i-1][j-1];
+                    int up = dp[i-1][j];
+                    int left = dp[i][j-1];
+                    dp[i][j] = Math.min(left,Math.min(up_left,up)) + 1;
                 }
                 max = Math.max(max,dp[i][j]);
             }
+        }
+        for(int i=0;i<m;i++){
+            for(int j=0;j<n;j++){
+                System.out.print(dp[i][j] + " ");
+            }   
+            System.out.println();
         }
         return max * max;
     }
