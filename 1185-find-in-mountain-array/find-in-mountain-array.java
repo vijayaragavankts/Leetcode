@@ -36,6 +36,7 @@ class Solution {
         return -1;
     }
 
+    // Order agonstic Binary Search
     public int binarySearch(int start, int end, MountainArray mountainArr, int target, boolean flag) {
         while (start <= end) {
             int mid = start + (end - start) / 2;
