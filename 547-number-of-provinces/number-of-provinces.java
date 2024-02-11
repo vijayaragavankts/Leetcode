@@ -15,16 +15,15 @@ class Solution {
             }
         }
 
-        Queue<Integer> queue = new LinkedList<>();
         int count = 0;
         int[] visited = new int[n];
-
         for(int i=0;i<n;i++){
             if(visited[i] == 0){
-                bfs(i,visited,adj,queue);
+                dfs(i,visited,adj);
                 count++;
             }
         }
+        
         return count;
     }
     public void bfs(int node, int[] visited, List<List<Integer>> adj, Queue<Integer> queue){
@@ -38,6 +37,15 @@ class Solution {
                     queue.offer(element);
                     visited[element] = 1;
                 }
+            }
+        }
+    }
+
+    public void dfs(int node, int[] visited, List<List<Integer>> adj){
+        visited[node] = 1;
+        for(int val:adj.get(node)){
+            if(visited[val] == 0){
+                dfs(val,visited,adj);
             }
         }
     }
