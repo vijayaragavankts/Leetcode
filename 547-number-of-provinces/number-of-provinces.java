@@ -48,5 +48,6 @@ class Solution {
                 dfs(val,visited,adj);
             }
         }
+        return;
     }
 }
