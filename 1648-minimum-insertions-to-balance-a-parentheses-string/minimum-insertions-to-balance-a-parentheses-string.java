@@ -12,11 +12,11 @@ class Solution {
                 if(ch == ')'){
                     invalid++;
                 }
-                if(stack == 0){
-                    invalid++;
+                if(stack>0){
+                    stack--;
                 }
                 else{
-                    stack--;
+                    invalid++;
                 }
             }
             
