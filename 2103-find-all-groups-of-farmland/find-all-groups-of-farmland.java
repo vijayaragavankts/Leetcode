@@ -27,14 +27,14 @@ class Solution {
                     list.add(i);
                     list.add(j);
                     bfs(i,j,land,vis);
-                    System.out.println(x + " " + y);
+                    // System.out.println(x + " " + y);
                     list.add(x);
                     list.add(y);
                 }
             }
         }
-        System.out.println("Printing List: ");
-        System.out.println(list);
+        // System.out.println("Printing List: ");
+        // System.out.println(list);
         int k = 0;
         int[][] mat = new int[list.size()/4][4];
         for(int i=0;i<mat.length;i++){
