@@ -4,18 +4,16 @@ class Solution {
         return f(n,dp);
     }
     public int f(int n, int[] dp){
-        if(n == 0){
+        if(n == 1){
             return 1;
         }
-        if(n < 0){
-            return 0;
+        if(n == 2){
+            return 2;
         }
         if(dp[n] != 0){
             return dp[n];
         }
-        int one = f(n-1,dp);
-        int two = f(n-2,dp);
-        dp[n] = one + two;
+        dp[n] = f(n-1,dp) + f(n-2,dp);
         return dp[n];
     }
 }
