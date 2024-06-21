@@ -40,6 +40,6 @@ class Solution {
                 dfs(row,col,grid1,grid2);
             }
         }
-
+        return;
     }
 }
