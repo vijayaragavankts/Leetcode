@@ -1,53 +1,66 @@
 class Pair{
-    int row;
-    int col;
+    int first;
+    int second;
     int time;
-    Pair(int row,int col, int time){
-        this.row = row;
-        this.col = col;
+    public Pair(int first, int second, int time){
+        this.first = first;
+        this.second = second;
         this.time = time;
     }
 }
+
 class Solution {
     public int orangesRotting(int[][] grid) {
+        // bfs
         int m = grid.length;
         int n = grid[0].length;
-        int[][] visited = new int[m][n];
+
+        int[][] vis = new int[m][n];
         Queue<Pair> queue = new LinkedList<>();
         for(int i=0;i<m;i++){
             for(int j=0;j<n;j++){
-                if(grid[i][j] == 2){
-                    visited[i][j] = 1;
+                if(grid[i][j] == 2){ // checks for rotten oranges
+                    // do something
                     queue.offer(new Pair(i,j,0));
+                    vis[i][j] = 1;
                 }
             }
         }
-        int t = 0;
-        while(!queue.isEmpty()){
-            int row = queue.peek().row;
-            int col = queue.peek().col;
-            int time = queue.peek().time;
-            t = time;
-            queue.poll();
-            int[] drow = {-1,0,1,0};
-            int[] dcol = {0,1,0,-1};
-            for(int i=0;i<4;i++){
-                int r = row + drow[i];
-                int c = col + dcol[i];
-                if(r >= 0 && c >= 0 && r < m && c < n && visited[r][c] == 0 && grid[r][c] == 1){
-                    queue.offer(new Pair(r,c,time+1));
-                    visited[r][c] = 1;
-                }
-            }
-        } 
-        int count = 0;
+        int time = bfs(queue,grid,vis);
         for(int i=0;i<m;i++){
             for(int j=0;j<n;j++){
-                if(visited[i][j] == 0 && grid[i][j] == 1){
+                if(grid[i][j] == 1 && vis[i][j] == 0){
                     return -1;
                 }
             }
-        }  
-        return t;
+        }
+        return time;
+
+    }
+    public int bfs(Queue<Pair> queue, int[][] grid, int[][] vis){
+        int m = grid.length;
+        int n = grid[0].length;
+        
+        int time = 0;
+        
+
+        while(!queue.isEmpty()){
+            int first = queue.peek().first;
+            int second = queue.peek().second;
+            time = queue.peek().time;
+            queue.poll();
+            int[] drow = {-1,0,1,0};
+            int[] dcol = {0,1,0,-1};
+            for(int x=0;x<4;x++){
+                int row = first + drow[x];
+                int col = second + dcol[x];
+                if(row >= 0 && col >= 0 && row < m && col < n && vis[row][col] == 0 && grid[row][col] == 1){
+                    queue.offer(new Pair(row,col,time+1));
+                    vis[row][col] = 1;
+                }
+            }
+        }
+        
+        return time;
     }
 }
