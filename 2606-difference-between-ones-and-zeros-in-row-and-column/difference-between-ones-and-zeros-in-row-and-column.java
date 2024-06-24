@@ -25,10 +25,10 @@ class Solution {
             col_zero[i] = n - sum;
         }
 
-        System.out.println(Arrays.toString(row_one));
-        System.out.println(Arrays.toString(row_zero));
-        System.out.println(Arrays.toString(col_one));
-        System.out.println(Arrays.toString(col_zero));
+        // System.out.println(Arrays.toString(row_one));
+        // System.out.println(Arrays.toString(row_zero));
+        // System.out.println(Arrays.toString(col_one));
+        // System.out.println(Arrays.toString(col_zero));
 
 
         int[][] res = new int[m][n];
