@@ -15,8 +15,6 @@ class Solution {
                 arr[i] = ch - 96;
             }
         }
-        System.out.println(Arrays.toString(arr));
-
         // kadane's method
         int sum = 0;
         int max = Integer.MIN_VALUE;;
