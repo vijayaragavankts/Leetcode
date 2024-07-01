@@ -11,8 +11,8 @@ class Solution {
             if(suffix == 0){
                 suffix = 1;
             }
-            prefix *= (int)nums[i];
-            suffix *= (int)nums[n-i-1];
+            prefix *= nums[i];
+            suffix *= nums[n-i-1];
             if(suffix<(Integer.MAX_VALUE)/2 || prefix<(Integer.MAX_VALUE)/2)
                 max = Math.max(max,Math.max(prefix,suffix));
         }
