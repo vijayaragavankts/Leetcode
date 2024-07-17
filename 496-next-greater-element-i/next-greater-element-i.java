@@ -5,29 +5,15 @@ class Solution {
         Map<Integer,Integer> map = new HashMap<>();
         for(int i=n-1;i>=0;i--){
             int val = nums2[i];
+            while(!stack.isEmpty() && stack.peek() <= val){
+                stack.pop();
+            }
             if(stack.isEmpty()){
-                stack.push(val);
-                map.put(nums2[i],-1);
+                map.put(val,-1);
+            }else{
+                map.put(val,stack.peek());
             }
-            else if(val < stack.peek()){
-                map.put(nums2[i],stack.peek());
-                stack.push(val);
-            }
-            else if(val > stack.peek()){
-                while(!stack.isEmpty()){
-                    if(val < stack.peek()){
-                        break;
-                    }
-                    stack.pop();
-                }
-                if(stack.isEmpty()){
-                    map.put(nums2[i],-1);
-                }
-                else{
-                    map.put(nums2[i],stack.peek());
-                }
-                stack.push(val);
-            }
+            stack.push(val);
         }
 
         int m = nums1.length;
