@@ -22,16 +22,13 @@ class Solution {
             }
         }
 
-        while(!stack.isEmpty()){
-            int val = stack.pop();
-            list.add(0,val);
-        }
-        System.out.println(list);
-        int size = list.size();
+        int size = stack.size();
         int[] arr = new int[size];
-        for(int i=0;i<size;i++){
-            arr[i] = list.get(i);
+
+        for(int i=size-1;i>=0;i--){
+            arr[i] = stack.pop();
         }
+        
         return arr;
     }
 }
