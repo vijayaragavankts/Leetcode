@@ -16,16 +16,11 @@ class Solution {
         if(ind >= s.length()){
             return 0;
         }
-
-        
         char ch = s.charAt(ind);
-        
-            
         if(ch == 'L'){
             if(!isPossible(i,j-1,n)){
                 return 0;
             }
-            
             return 1 + f(n,i,j-1,ind+1,s,flag);
         }
         if(ch == 'R'){
@@ -46,7 +41,6 @@ class Solution {
             }
             return 1 + f(n,i+1,j,ind+1,s,flag);
         }
-        
     }
     public boolean isPossible(int row,int col,int n)
     {
