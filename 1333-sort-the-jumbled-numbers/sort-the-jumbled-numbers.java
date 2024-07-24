@@ -18,7 +18,7 @@ class Solution {
             }
             map.put(nums[i],val);
         }
-        System.out.println(map);
+        // System.out.println(map);
 
         // Convert the map's entries to a list
         List<Map.Entry<Integer, Integer>> list = new ArrayList<>(map.entrySet());
@@ -34,7 +34,7 @@ class Solution {
                 res[x++] = element;
             }
         }
-        System.out.println(list);
+        // System.out.println(list);
         return res;
     }
 }
