@@ -9,7 +9,7 @@ class Solution {
         }
         int target = sum / 2;
         int n = nums.length;
-        int[][] dp = new int[n][50000];
+        int[][] dp = new int[n][target+1];
         for(int[] arr:dp){
             Arrays.fill(arr,-1);
         }
