@@ -13,7 +13,6 @@ class Solution {
                 res++;
             }
         }
-        System.out.println(list);
         return res;
     }
 }
