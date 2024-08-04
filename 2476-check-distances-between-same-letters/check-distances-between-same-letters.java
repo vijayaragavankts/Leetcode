@@ -11,12 +11,9 @@ class Solution {
             }
             last[ch - 'a'] = i;
         }
-        System.out.println(Arrays.toString(first));
-        System.out.println(Arrays.toString(last));
         for(int i=0;i<26;i++){
             if(first[i] >= 0 && last[i] >= 0){
                 int val = Math.abs(first[i] - last[i]) - 1;
-                System.out.println(val + " " + distance[i]);
                 if(val != distance[i]){
                     return false;
                 }
