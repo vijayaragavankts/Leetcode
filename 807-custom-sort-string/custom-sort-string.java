@@ -15,8 +15,6 @@ class Solution {
                 map.remove(ch);
             }
         }
-        System.out.println(map);
-        System.out.println(res);
         for(Map.Entry<Character,Integer> e:map.entrySet()){
             int count = e.getValue();
             char val = e.getKey();
