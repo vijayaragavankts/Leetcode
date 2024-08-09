@@ -11,7 +11,6 @@ class Solution {
             }
         };
         Collections.sort(list,com);
-        System.out.println(list);
         String res = "";
         for(String s:list){
             res += s + " ";
