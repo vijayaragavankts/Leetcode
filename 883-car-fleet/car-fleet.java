@@ -6,13 +6,7 @@ class Solution {
             cars[i][0] = position[i];
             cars[i][1] = (double)(target - position[i]) / speed[i];
         }
-        for(double[] a:cars){
-            System.out.println(Arrays.toString(a));
-        }
         Arrays.sort(cars,(a,b)->Double.compare(b[0],a[0]));
-        for(double[] a:cars){
-            System.out.println(Arrays.toString(a));
-        }
         double prev = 0;
         int count = 0;
         for(double[] arr:cars){
