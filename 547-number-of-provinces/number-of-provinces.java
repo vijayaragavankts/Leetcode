@@ -26,10 +26,16 @@ class Solution {
         return count;
     }
     public void dfs(List<List<Integer>> adj, boolean[] vis, int node){
+        Stack<Integer> stack = new Stack<>();
+        stack.push(node);
         vis[node] = true;
-        for(int val:adj.get(node)){
-            if(!vis[val]){
-                dfs(adj,vis,val);
+        while(!stack.isEmpty()){
+            int temp = stack.pop();
+            for(int val:adj.get(temp)){
+                if(!vis[val]){
+                    stack.push(val);
+                    vis[val] = true;
+                }
             }
         }
     }
