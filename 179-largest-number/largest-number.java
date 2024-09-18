@@ -13,6 +13,7 @@ class Solution {
             }
         };
         Arrays.sort(str,com);
+        System.out.println(Arrays.toString(str));
         String res = "";
         int count = 0;
         for(String s:str){
