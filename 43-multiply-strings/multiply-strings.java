@@ -1,4 +1,4 @@
-import java.math.*;
+import java.math.BigInteger;
 class Solution {
     public String multiply(String num1, String num2) {
         BigInteger a = new BigInteger(num1);
