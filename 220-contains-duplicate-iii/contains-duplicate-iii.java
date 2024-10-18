@@ -3,8 +3,6 @@ class Solution {
         TreeSet<Integer> set = new TreeSet<>();
         for(int i=0;i<nums.length;i++){
             Integer ceiling = set.ceiling(nums[i] - valueDiff);
-            
-            // Check if such a number exists and is within the valueDiff range
             if (ceiling != null && ceiling <= nums[i] + valueDiff) {
                 return true;
             }
