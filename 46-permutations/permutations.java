@@ -1,11 +1,11 @@
 class Solution {
     public List<List<Integer>> permute(int[] nums) {
-        List<List<Integer>> res = new ArrayList();
-        backtrack(nums,res,new ArrayList());
+        List<List<Integer>> res = new ArrayList<>();
+        f(nums,new ArrayList(),res);
         return res;
     }
-    public void backtrack(int[] nums, List<List<Integer>> res, List<Integer> list){
-        if(list.size() == nums.length){
+    public void f(int[] nums, List<Integer> list, List<List<Integer>> res){
+        if(nums.length == list.size()){
             res.add(new ArrayList(list));
             return;
         }
@@ -14,7 +14,7 @@ class Solution {
                 continue;
             }
             list.add(nums[i]);
-            backtrack(nums,res,list);
+            f(nums,list,res);
             list.remove(list.size()-1);
         }
     }
