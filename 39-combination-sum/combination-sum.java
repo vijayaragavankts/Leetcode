@@ -1,20 +1,20 @@
 class Solution {
     List<List<Integer>> res = new ArrayList<>();
     public List<List<Integer>> combinationSum(int[] nums, int target) {
-        f(nums,target,0, new ArrayList(),0);
+        f(nums,target,new ArrayList(),0);
         return res;
     }
-    public void f(int[] nums, int target, int current, List<Integer> list,int start){
-        if(current > target){
+    public void f(int[] nums, int target, List<Integer> list, int start){
+        if(target < 0){
             return;
         }
-        if(current == target){
+        if(target == 0){
             res.add(new ArrayList(list));
             return;
         }
         for(int i=start;i<nums.length;i++){
             list.add(nums[i]);
-            f(nums,target,current+nums[i],list,i);
+            f(nums,target-nums[i],list,i);
             list.remove(list.size()-1);
         }
     }
