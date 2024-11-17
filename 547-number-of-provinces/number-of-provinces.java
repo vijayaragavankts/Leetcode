@@ -1,9 +1,8 @@
 class Solution {
     public int findCircleNum(int[][] isConnected) {
-        // adjacency list
+        int result = 0;
         List<List<Integer>> adj = new ArrayList<>();
         int n = isConnected.length;
-
         for(int i=0;i<n;i++){
             adj.add(new ArrayList());
         }
@@ -16,14 +15,15 @@ class Solution {
             }
         }
         boolean[] vis = new boolean[n];
-        int count = 0;
         for(int i=0;i<n;i++){
             if(!vis[i]){
-                count++;
+                result++;
                 dfs(adj,vis,i);
             }
         }
-        return count;
+        System.out.println(adj);
+
+        return result;
     }
     public void dfs(List<List<Integer>> adj, boolean[] vis, int node){
         Stack<Integer> stack = new Stack<>();
