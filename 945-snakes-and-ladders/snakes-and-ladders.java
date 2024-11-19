@@ -1,7 +1,8 @@
 class Solution {
     public int snakesAndLadders(int[][] board) {
         int n = board.length;
-        int[] nums = new int[n * n + 1];
+        // flatten the 2D matrix to 1D Array
+        int[] nums = new int[n*n+1];
         boolean flag = true;
         int idx = 1;
         for(int i=n-1;i>=0;i--){
@@ -16,23 +17,23 @@ class Solution {
                 }
             }
             flag = !flag;
+            
         }
-        System.out.println(Arrays.toString(nums));
+        int[] vis = new int[n*n+1];
 
         Queue<Integer> queue = new LinkedList<>();
         queue.offer(1);
-        int[] vis = new int[n*n+1];
-        int moves = 0;
+        int result = 0;
         while(!queue.isEmpty()){
             int size = queue.size();
             while(size-- > 0){
                 int curr = queue.peek();
                 queue.poll();
                 if(curr == n * n){
-                    return moves;
+                    return result;
                 }
-                for(int dice = 1;dice<=6;dice++){
-                    int next = curr + dice;
+                for(int dice=1;dice<=6;dice++){
+                    int next = dice + curr;
                     if(next > n*n){
                         break;
                     }
@@ -43,11 +44,12 @@ class Solution {
                         vis[next] = 1;
                         queue.offer(next);
                     }
-                }
 
+                }
             }
-            moves += 1;
+            result++;
         }
+
         return -1;
     }
 }
