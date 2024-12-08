@@ -1,16 +1,8 @@
 class Solution {
     public int fib(int n) {
-        // memoization
-        int[] dp = new int[n+1];
-        return f(n,dp);
-    }
-    public int f(int n, int[] dp){
-        if(dp[n] != 0){
-            return dp[n];
-        }
-        if(n <= 1){
-            return n;
-        }
-        return dp[n] = f(n-1,dp) + f(n-2,dp);
+        double sqr_5 = Math.sqrt(5);
+        double phi = (1 + sqr_5)/2;
+        double psi = (1 - sqr_5)/2;
+        return (int)((Math.pow(phi,n) - Math.pow(psi,n))/sqr_5);
     }
 }
