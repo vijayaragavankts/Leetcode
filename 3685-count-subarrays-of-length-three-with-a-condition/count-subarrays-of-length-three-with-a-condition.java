@@ -2,12 +2,11 @@ class Solution {
     public int countSubarrays(int[] nums) {
         int n = nums.length;
         int res = 0;
-        for (int i = 0; i <= n - 3; i++) {
-            int l = nums[i];
-            int m = nums[i + 1];
-            int r = nums[i + 2];
-            
-            if (l + r == m / 2.0) {
+        for(int i=2;i<n;i++){
+            int x = nums[i-2];
+            int y = nums[i-1];
+            int z = nums[i];
+            if(x + z == y / 2.0){
                 res++;
             }
         }
