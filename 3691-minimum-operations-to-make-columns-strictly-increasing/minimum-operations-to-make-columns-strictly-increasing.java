@@ -11,11 +11,7 @@ class Solution {
                     grid[j][i] += diff;
                 }
             }
-            for(int[] arr:grid){
-                System.out.println(Arrays.toString(arr));
-            }
         }
-            return res;
-        
+        return res;
     }
 }
