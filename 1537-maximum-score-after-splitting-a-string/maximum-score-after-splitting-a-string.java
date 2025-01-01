@@ -33,10 +33,7 @@ class Solution {
                 ones_in_right[i] = one;
             }
         }
-
-        System.out.println(Arrays.toString(zeros_in_left));
-        System.out.println(Arrays.toString(ones_in_right));
-
+        
         int max = 0;
         for(int i=0;i<n-1;i++){
             int sum = zeros_in_left[i] + ones_in_right[i+1];
