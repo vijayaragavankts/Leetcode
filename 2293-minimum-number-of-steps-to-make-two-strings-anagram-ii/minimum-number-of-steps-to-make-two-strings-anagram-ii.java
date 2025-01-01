@@ -3,21 +3,16 @@ class Solution {
         int res = 0;
         int m = s.length();
         int n = t.length();
-        int[] numsOfS = new int[26];
-        int[] numsOfT = new int[26];
+        int[] nums = new int[26];
         for(char ch:s.toCharArray()){
-            numsOfS[ch - 'a']++;
+            nums[ch - 'a']++;
         }
         for(char ch:t.toCharArray()){
-            numsOfT[ch - 'a']++;
+            nums[ch - 'a']--;
         }
-
-
-        System.out.println(Arrays.toString(numsOfT));
-        System.out.println(Arrays.toString(numsOfS));
         
         for(int i=0;i<26;i++){
-            res += Math.abs(numsOfS[i] - numsOfT[i]);
+            res += Math.abs(nums[i]);
         }
 
 
