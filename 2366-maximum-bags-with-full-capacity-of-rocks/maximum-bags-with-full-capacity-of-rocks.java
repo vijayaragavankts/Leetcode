@@ -15,6 +15,9 @@ class Solution {
                 additionalRocks -= diff[i];
                 res++;
             }
+            else{
+                break;
+            }
         }
         return res;
     }
